@@ -724,7 +724,7 @@ async function sendToAI() {
 
 async function pollMsgs() {
     try {
-        const msgs = await fetch('/get_messages').then(r=>r.json());
+        const msgs = await fetch(`/get_messages?user_id=${myId}`).then(r=>r.json());
         msgs.forEach(m => {
             if (m.from==='Crypto_Assistor') {
                 addBubble('AI', m.text, false, 'ai-msgs');
